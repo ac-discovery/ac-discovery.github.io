@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/</loc>
+    
+    <lastmod>2020-05-23T16:22:31.969Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda/</loc>
+    
+    <lastmod>2020-05-23T16:17:59.835Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/</loc>
     
     <lastmod>2020-04-12T13:24:03.988Z</lastmod>
@@ -23,7 +37,7 @@
   </url>
   
   <url>
-    <loc>https://ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda/</loc>
+    <loc>https://ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda%20-%20Copy/</loc>
     
     <lastmod>2020-04-12T10:52:19.857Z</lastmod>
     

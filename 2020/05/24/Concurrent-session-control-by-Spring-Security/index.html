@@ -7,24 +7,24 @@
 
   
   <script data-ad-client="ca-pub-9769152758854822" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <title>A plugin for Visio Studio Code | Allen Chen&#39;s Discovery</title>
+  <title>Concurrent session control by Spring Security | Allen Chen&#39;s Discovery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Made a plugin for Visio Studio Code to help converting the numbers between hex and decimal.">
+  <meta name="description" content="We all have to face the problems of concurrent login control while building a new website, and basically there are 2 ways to solve that, DB and session management. Unless system ensure all the login a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A plugin for Visio Studio Code">
-<meta property="og:url" content="https://ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/index.html">
+<meta property="og:title" content="Concurrent session control by Spring Security">
+<meta property="og:url" content="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/index.html">
 <meta property="og:site_name" content="Allen Chen&#39;s Discovery">
-<meta property="og:description" content="Made a plugin for Visio Studio Code to help converting the numbers between hex and decimal.">
+<meta property="og:description" content="We all have to face the problems of concurrent login control while building a new website, and basically there are 2 ways to solve that, DB and session management. Unless system ensure all the login a">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/visioStudio.jpg">
-<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/hdconv.jpg">
-<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/introduct.gif">
-<meta property="article:published_time" content="2020-04-12T12:13:35.000Z">
-<meta property="article:modified_time" content="2020-04-12T13:24:03.988Z">
+<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img1.png">
+<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img2.png">
+<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img3.png">
+<meta property="article:published_time" content="2020-05-23T15:25:37.000Z">
+<meta property="article:modified_time" content="2020-05-23T16:22:31.969Z">
 <meta property="article:author" content="Allen Chen -- haoting.chen.biz@gmail.com">
 <meta property="article:tag" content="Mainframe Modernization">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/visioStudio.jpg">
+<meta name="twitter:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img1.png">
   
     <link rel="alternate" href="/ac-discovery.github.io/atom.xml" title="Allen Chen&#39;s Discovery" type="application/atom+xml">
   
@@ -78,10 +78,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-A-plugin-for-Visio-Studio-Code" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Concurrent-session-control-by-Spring-Security" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/" class="article-date">
-  <time datetime="2020-04-12T12:13:35.000Z" itemprop="datePublished">2020-04-12</time>
+    <a href="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" class="article-date">
+  <time datetime="2020-05-23T15:25:37.000Z" itemprop="datePublished">2020-05-24</time>
 </a>
     
   </div>
@@ -92,7 +92,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      A plugin for Visio Studio Code
+      Concurrent session control by Spring Security
     </h1>
   
 
@@ -100,20 +100,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Made a <a href="https://marketplace.visualstudio.com/items?itemName=AllenChen.hex-decimal-magic" target="_blank" rel="noopener">plugin</a> for Visio Studio Code to help converting the numbers between hex and decimal.</p>
-<img src="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/visioStudio.jpg" class="">
+        <p>We all have to face the problems of concurrent login control while building a new website, and basically there are 2 ways to solve that, DB and session management. Unless system ensure all the login and logout events are collected, session management would be the best solution for this kind of problems, and Spring Security provide several features that can help us to implement it.</p>
+<p>So just consider the situation that a user has already logged in but still attempts to login from different applications or devices, for which we might stop the current login and show an alert like “you’ve logged from xxx”(No.1), or allow the current login and disconnect the previous one (No.2).</p>
 <a id="more"></a>
-<p>You can search it from Extensions.</p>
-<img src="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/hdconv.jpg" class="">
+<p>For No.1, add the following code in configure function which should be overridden.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http.authorizeRequests().sessionManagement().</span><br><span class="line"><span class="comment">// Limit the number of simultaneous sessions</span></span><br><span class="line">maximumSessions(<span class="number">1</span>).</span><br><span class="line"><span class="comment">// Url redirection for previous login session after page refreshment</span></span><br><span class="line">expiredUrl(<span class="string">"/login?expired=true"</span>)</span><br></pre></td></tr></table></figure>
+<p>Sample:</p>
+<img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img1.png" class="">
 
-<p>And here is the Demo.</p>
-<img src="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/introduct.gif" class="">
+<p>For No.2, add the following code after No.1’s code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prevent previous login session</span></span><br><span class="line">.maxSessionsPreventsLogin(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>Sample:</p>
+<img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img2.png" class="">
+
+<p>Furthermore, an obvious mistake a user can make is forgetting to logout from current application or device also should be considered, this might be a enough reason to invalidate a user session after a certain time like 10 minutes, just add the following code in application.properties.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The units are in seconds</span></span><br><span class="line">server.servlet.session.timeout = <span class="number">600</span></span><br></pre></td></tr></table></figure>
+<p>Sample:</p>
+<img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img3.png" class="">
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/" data-id="ck9v567ao0000g0qzdpm9787f" class="article-share-link">Share</a>
+      <a data-url="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" data-id="ckajsec3v000030qz3s2kds40" class="article-share-link">Share</a>
       
       
     </footer>
@@ -122,19 +131,10 @@
     
 <nav id="article-nav">
   
-    <a href="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Concurrent session control by Spring Security
-        
-      </div>
-    </a>
   
-  
-    <a href="/ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Run COBOL on AWS Lambda</div>
+      <div class="article-nav-title">A plugin for Visio Studio Code</div>
     </a>
   
 </nav>

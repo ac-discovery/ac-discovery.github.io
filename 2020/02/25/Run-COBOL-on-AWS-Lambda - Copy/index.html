@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="google-site-verification" content="rc596ldm26tmukkxsxr9Xu1aGxFKqBB0NMEHfVZwMYU" />
+  
+
+  
+  <script data-ad-client="ca-pub-9769152758854822" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <title>Run COBOL on AWS Lambda | Allen Chen&#39;s Discovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="5 simple steps to deploy and run COBOL program on AWS Lambda.    Make docker environment Install and test necessary docker apps on Amazon Linux.  sudo yum -y update sudo yum -y install docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Run COBOL on AWS Lambda">
+<meta property="og:url" content="https://ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda%20-%20Copy/index.html">
+<meta property="og:site_name" content="Allen Chen&#39;s Discovery">
+<meta property="og:description" content="5 simple steps to deploy and run COBOL program on AWS Lambda.    Make docker environment Install and test necessary docker apps on Amazon Linux.  sudo yum -y update sudo yum -y install docker">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-25T13:11:36.000Z">
+<meta property="article:modified_time" content="2020-04-12T10:52:19.857Z">
+<meta property="article:author" content="Allen Chen -- haoting.chen.biz@gmail.com">
+<meta property="article:tag" content="Mainframe Modernization">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/ac-discovery.github.io/atom.xml" title="Allen Chen&#39;s Discovery" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="icon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/ac-discovery.github.io/css/style.css">
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/ac-discovery.github.io/" id="logo">Allen Chen&#39;s Discovery</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/ac-discovery.github.io/" id="subtitle">Tech lead the world.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/ac-discovery.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/ac-discovery.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/ac-discovery.github.io/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://ac-discovery.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Run-COBOL-on-AWS-Lambda - Copy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda%20-%20Copy/" class="article-date">
+  <time datetime="2020-02-25T13:11:36.000Z" itemprop="datePublished">2020-02-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Run COBOL on AWS Lambda
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>5 simple steps to deploy and run COBOL program on AWS Lambda.</p>
+
+
+<ol>
+<li><p><strong>Make docker environment</strong><br> Install and test necessary docker apps on Amazon Linux.</p>
+<p> <label style="color:blue">sudo yum -y update</label><br> <label style="color:blue">sudo yum -y install docker</label></p>
+<a id="more"></a>
+<p> <label style="color:blue">sudo service docker start</label><br> <label style="color:blue">sudo chkconfig docker on</label><br> <label style="color:blue">sudo usermod -a -G docker ec2-user</label><br> <label style="color:blue">sudo gpasswd -a $USER docker</label><br> <label style="color:green">#Test Command</label><br> <label style="color:blue">docker info</label><br> <label style="color:green">#Will show</label><br> <label style="color:green">#Containers: 0</label><br> <label style="color:green">#Running: 0</label><br> <label style="color:green">#Paused: 0</label><br> <label style="color:green">#Stopped: 0</label><br> <label style="color:green">#…</label><br> <label style="color:blue">sudo curl -L &quot;<a href="https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$" target="_blank" rel="noopener">https://github.com/docker/compose/releases/download/1.23.1/docker-compose-$</a>(uname -s)-$(uname -m)&quot; -o /usr/local/bin/docker-compose</label><br> <label style="color:blue">sudo chmod +x /usr/local/bin/docker-compose</label><br> <label style="color:green">#Test Command</label><br> <label style="color:blue">docker-compose --version</label><br> <label style="color:green">#Will show</label><br> <label style="color:green">#docker-compose version 1.25.4, build 8d51620a</label></p>
+</li>
+<li><p><strong>Make COBOL compiling environment</strong><br> Create <label style="color:blue">Dockerfile</label> to install cobol compiler, tools and build lambda function package.</p>
+<p> <label style="color:blue">FROM amazonlinux:1</label><br> <label style="color:green"># install tools</label><br> <label style="color:blue">RUN yum -y groupinstall &quot;Development tools&quot;</label><br> <label style="color:green"># install GnuCOBOL 3.0</label><br> <label style="color:blue">RUN yum -y install gmp-devel ncurses-devel db4-devel</label><br> <label style="color:blue">RUN curl -L -o gnucobol-3.0-rc1.tar.gz <a href="https://sourceforge.net/projects/open-cobol/files/gnucobol/3.0/gnucobol-3.0-rc1.tar.gz/download" target="_blank" rel="noopener">https://sourceforge.net/projects/open-cobol/files/gnucobol/3.0/gnucobol-3.0-rc1.tar.gz/download</a></label><br> <label style="color:blue">RUN tar zxf gnucobol-3.0-rc1.tar.gz</label><br> <label style="color:blue">RUN cd gnucobol-3.0-rc1 &amp;&amp; ./configure --prefix=/usr --libdir=/usr/lib64 &amp;&amp; make &amp;&amp; make install</label><br> <label style="color:green"># build lambda function package</label><br> <label style="color:blue">RUN mkdir -p /cobol/lib</label><br> <label style="color:blue">COPY bootstrap /cobol</label><br> <label style="color:blue">COPY hello.cob /cobol</label><br> <label style="color:blue">RUN cp /usr/lib64/libcob.so.4 \</label><br> <label style="color:blue">       /lib64/libm.so.6 \</label><br> <label style="color:blue">       /usr/lib64/libgmp.so.10 \</label><br> <label style="color:blue">       /lib64/libncursesw.so.5 \</label><br> <label style="color:blue">       /lib64/libtinfo.so.5 \</label><br> <label style="color:blue">       /usr/lib64/libdb-4.7.so \</label><br> <label style="color:blue">       /lib64/libdl.so.2 \</label><br> <label style="color:blue">       /lib64/libc.so.6 \</label><br> <label style="color:blue">       /lib64/libpthread.so.0 \</label><br> <label style="color:blue">       /lib64/ld-linux-x86-64.so.2 \</label><br> <label style="color:blue">       /cobol/lib</label><br> <label style="color:blue">RUN cd /cobol &amp;&amp; \</label><br> <label style="color:blue">      COB_LDFLAGS=”-Wl,--rpath=./lib -Wl,--dynamic-linker=./lib/ld-linux-x86-64.so.2” cobc -x hello.cob</label><br> <label style="color:blue">RUN cd /cobol &amp;&amp; zip -r /lambda-cobol-hello.zip ./bootstrap ./hello ./lib</label><br> <label style="color:blue">CMD /bin/bash</label><br> <label style="color:blue"></label></p>
+<p> Create <label style="color:blue">bootstrap</label> script for AWS Lambda Custom Runtime, which will be used to lunch COBOL program.</p>
+<p> <label style="color:green">#!/bin/sh</label><br> <label style="color:blue">set -euo pipefail</label><br> <label style="color:blue">LM=$(echo &quot;$_HANDLER&quot; | cut -d. -f2)</label><br> <label style="color:green"># Processing</label><br> <label style="color:blue">while true; do</label><br> <label style="color:blue">  HEADERS=&quot;$(mktemp)&quot;</label><br> <label style="color:green">  # Get an event</label><br> <label style="color:blue">  EVENT_DATA=$(curl -sS -LD &quot;$HEADERS&quot; -X GET &quot;http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/next&quot;)</label><br> <label style="color:blue">  REQUEST_ID=$(grep -Fi Lambda-Runtime-Aws-Request-Id “$HEADERS” | tr -d ‘[:space:]’ | cut -d: -f2)</label><br> <label style="color:green">  # Execute the handler function from the script</label><br> <label style="color:blue">  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$LAMBDA_TASK_ROOT/lib</label><br> <label style="color:blue">  RESPONSE=”$(./$LM “$EVENT_DATA”)”</label><br> <label style="color:blue">  echo $RESPONSE</label><br> <label style="color:green">  # Send the response</label><br> <label style="color:blue">  curl -X POST &quot;http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/$REQUEST_ID/response&quot; -d &quot;$RESPONSE&quot;</label><br> <label style="color:blue">done</label></p>
+<p> Prepare <label style="color:blue">build.sh</label>.</p>
+<p> <label style="color:green">#!/bin/bash</label><br> <label style="color:blue">docker build -t lambda-cobol:latest .</label><br> <label style="color:blue">docker run -it --rm -v `pwd`:/tmp lambda-cobol cp /lambda-cobol-hello.zip /tmp/</label></p>
+<p> Then, Prepare the COBOL program which you want to run.  e.g. <label style="color:blue">hello.cob</label></p>
+<p> <label style="color:blue">000010 IDENTIFICATION DIVISION.</label><br> <label style="color:blue">000020 PROGRAM-ID. SAMPLE-01.</label><br> <label style="color:blue">000030 ENVIRONMENT DIVISION.</label><br> <label style="color:blue">000040 DATA DIVISION.</label><br> <label style="color:blue">000050 PROCEDURE DIVISION.</label><br> <label style="color:blue">000060 MAIN.</label><br> <label style="color:blue">000070 DISPLAY “Hello world!” UPON CONSOLE.</label><br> <label style="color:blue">000080 STOP RUN.</label></p>
+</li>
+<li><p><strong>Build</strong><br> Build the Zip file for AWS Lambda.</p>
+<p> <label style="color:blue">./build.sh</label><br> <label style="color:green">#Will show</label><br> <label style="color:green">#Successfully built 912ab7f887a4</label><br> <label style="color:green">#Successfully tagged lambda-cobol:latest</label><br> <label style="color:blue">ls</label><br> <label style="color:green">#Will show</label><br> <label style="color:green">#Dockerfile  bootstrap  build.sh  hello.cob  lambda-cobol-hello.zip</label></p>
+</li>
+<li><p><strong>Deploy</strong><br> Deploy the Zip file by appropriate IAM role.</p>
+<p> <label style="color:blue">$ export LAMBDA_EXEC_ROLE=arn:aws:iam::XXXXXXXXXXXX:role/exe-lambda</label><br> <label style="color:blue">$ aws lambda create-function --function-name hello-cobol --runtime provided --role $LAMBDA_EXEC_ROLE --handler cobol.hello --zip-file fileb://lambda-cobol-hello.zip --region ap-northeast-1</label><br> <label style="color:green">#Will show</label><br> <label style="color:green">{</label><br> <label style="color:green">    “TracingConfig”: {</label><br> <label style="color:green">        “Mode”: “PassThrough”</label><br> <label style="color:green">    },</label><br> <label style="color:green">….</label></p>
+</li>
+<li><p><strong>Run it</strong><br> Just use any test event to run your COBOL program on AWS Lambda.</p>
+ 
+
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda%20-%20Copy/" data-id="ckajsmnkn0000bcqz3evh3291" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Run COBOL on AWS Lambda
+        
+      </div>
+    </a>
+  
+  
+    <a href="/ac-discovery.github.io/2020/01/02/historyOfJapanMainframe/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Brief history of mainframe computer development in Japan</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+<div class="widget-wrap">
+  <h3 class="widget-title">profile</h3>
+  <div class="widget">
+    <img alt="myPhoto" src="/ac-discovery.github.io/fancybox/profile.jpg" width="auto" height="auto"><br>
+    <p>
+      A fluent English, Japanse, Chinese speaker, and a full stack designer proficient in C, Java, COBOL, VB, Python,
+      RPA and Cloud, with strong passion for technological discovery and global communication.<br>
+      <br>
+      "If you only do what you can do, you will never be more than what you are now."<br>
+      <br>
+      <p>
+        <a href="https://github.com/ac-discovery" target="_blank" rel="noopener">
+          <img alt="githubIcon" src="/ac-discovery.github.io/fancybox/githubIcon.png" width="20" height="20">
+        </a>
+        <a href="https://stackoverflow.com/users/9890577/allen-chen" target="_blank" rel="noopener">
+          <img alt="githubIcon" src="/ac-discovery.github.io/fancybox/stackOverFlow.png" width="20" height="20">
+        </a>
+        <a href="mailto:haoting.chen.biz@gmail.com">
+          <img alt="githubIcon" src="/ac-discovery.github.io/fancybox/mailIcon.jpg" width="20" height="20">
+        </a>
+  </div>
+</div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/ac-discovery.github.io/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/ac-discovery.github.io/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/ac-discovery.github.io/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/ac-discovery.github.io/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/">Concurrent session control by Spring Security</a>
+          </li>
+        
+          <li>
+            <a href="/ac-discovery.github.io/2020/04/12/A-plugin-for-Visio-Studio-Code/">A plugin for Visio Studio Code</a>
+          </li>
+        
+          <li>
+            <a href="/ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda/">Run COBOL on AWS Lambda</a>
+          </li>
+        
+          <li>
+            <a href="/ac-discovery.github.io/2020/02/25/Run-COBOL-on-AWS-Lambda%20-%20Copy/">Run COBOL on AWS Lambda</a>
+          </li>
+        
+          <li>
+            <a href="/ac-discovery.github.io/2020/01/02/historyOfJapanMainframe/">Brief history of mainframe computer development in Japan</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Allen Chen -- haoting.chen.biz@gmail.com<br>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/ac-discovery.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/ac-discovery.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/ac-discovery.github.io/fancybox/jquery.fancybox.css">
+
+  
+<script src="/ac-discovery.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/ac-discovery.github.io/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
