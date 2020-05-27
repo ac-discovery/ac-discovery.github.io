@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img2.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img3.png">
 <meta property="article:published_time" content="2020-05-23T15:25:37.000Z">
-<meta property="article:modified_time" content="2020-05-24T14:38:13.370Z">
+<meta property="article:modified_time" content="2020-05-27T02:57:19.784Z">
 <meta property="article:author" content="Allen Chen -- haoting.chen.biz@gmail.com">
 <meta property="article:tag" content="Mainframe Modernization">
 <meta name="twitter:card" content="summary">
@@ -101,7 +101,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>We all have to face the problems of concurrent login control while building a new website, and basically there are 2 ways to solve that, DB and session management. Unless system ensure all the login and logout events are collected, session management would be the best solution for this kind of problems, and Spring Security provide several features that can help us to implement it.</p>
+        <p>We all have to face the problems of concurrent login control while building a new website, and basically there are 2 ways to solve that, DB and session management. Unless system ensure all the login and logout events are collected, session management would be the best solution for this kind of problems, and <a href="https://spring.io/projects/spring-security" target="_blank" rel="noopener">Spring Security</a> provide several features that can help us to implement it.</p>
 <img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/spring-security.png" class="">
 
 <p>So just consider the situation that a user has already logged in the system but still attempts to login again from different applications or devices, for which we might stop the current login and show an alert like “you’ve logged from xxx”(No.1), or allow the current login and disconnect the previous one (No.2).</p>
@@ -126,7 +126,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" data-id="ckal63jln0002s4qz4qoeerra" class="article-share-link">Share</a>
+      <a data-url="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" data-id="ckaorec650002swqz290uanud" class="article-share-link">Share</a>
       
       
     </footer>
