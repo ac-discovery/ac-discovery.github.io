@@ -20,15 +20,16 @@ ga('send', 'pageview');
 
   
   <script data-ad-client="ca-pub-9769152758854822" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <title>Basic-processing-steps-of-OCR | Allen Chen&#39;s Discovery</title>
+  <title>Basic processing steps of OCR | Allen Chen&#39;s Discovery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Parity testing, which means to compare the execution result of all programs from old&#x2F;new systems, is usually an important phase in mainframe modernization project. And recently we are trying to upgrad">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Basic-processing-steps-of-OCR">
+<meta property="og:title" content="Basic processing steps of OCR">
 <meta property="og:url" content="https://ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/index.html">
 <meta property="og:site_name" content="Allen Chen&#39;s Discovery">
 <meta property="og:description" content="Parity testing, which means to compare the execution result of all programs from old&#x2F;new systems, is usually an important phase in mainframe modernization project. And recently we are trying to upgrad">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/first.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_1.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_2.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_3.png">
@@ -36,11 +37,11 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_5.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_xxx.png">
 <meta property="article:published_time" content="2020-05-31T07:05:52.000Z">
-<meta property="article:modified_time" content="2020-05-31T10:46:22.069Z">
+<meta property="article:modified_time" content="2020-05-31T11:19:22.773Z">
 <meta property="article:author" content="Allen Chen -- haoting.chen.biz@gmail.com">
 <meta property="article:tag" content="Mainframe Modernization">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_1.png">
+<meta name="twitter:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/first.png">
   
     <link rel="alternate" href="/ac-discovery.github.io/atom.xml" title="Allen Chen&#39;s Discovery" type="application/atom+xml">
   
@@ -108,7 +109,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      Basic-processing-steps-of-OCR
+      Basic processing steps of OCR
     </h1>
   
 
@@ -116,42 +117,43 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Parity testing, which means to compare the execution result of all programs from old/new systems, is usually an important phase in mainframe modernization project. And recently we are trying to upgrade it to a OCR based automated, standard process.</p>
+        <p>Parity testing, which means to compare the execution result of all programs from old/new systems, is usually an important phase in mainframe modernization project. And recently we are trying to upgrade it to a <a href="https://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank" rel="noopener">OCR</a> based automated, standard process.</p>
 <p>So let’s check the basic processing steps of OCR and find out most notable points for improving the OCR accuracy rate.</p>
+<img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/first.png" class="">
+
 <ol>
-<li><p>Image importing</p>
+<li><p><strong>Image importing</strong></p>
+<a id="more"></a>
 <img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_1.png" class="">
-<p>Importing the entire document as an image with a scanner or camera</p>
+<p>Import the entire document as an image with a scanner or camera</p>
 </li>
-<li><p>Layout check</p>
+<li><p><strong>Layout check</strong></p>
 <img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_2.png" class="">
-<p>Analyse the image structure and devide it into character, border line, photo, etc. And check out the part which should be read as characters</p>
+<p>Analyse the image structure and divide it into character, border line, photo, etc. And check out the part which should be read as characters</p>
 </li>
-<li><p>Recognition (cutting out characters)</p>
+<li><p><strong>Recognition (cutting out characters)</strong></p>
 <img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_3.png" class="">
-<p>Cutting out the character units from character string.</p>
+<p>Cut out the character units from character string.</p>
 </li>
-<li><p>Recognition (character recognition)</p>
+<li><p><strong>Recognition (character recognition)</strong></p>
 <img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_4.png" class="">
 <p>Recognize characters by their characteristics.</p>
 </li>
-<li><p>Format output</p>
+<li><p><strong>Format output</strong></p>
 <img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_5.png" class="">
-<p>Outputs text data to a file</p>
+<p>Output text data to a file</p>
 </li>
 </ol>
-<p>The most important step is to recognize the characters after cutting them out from character string(4), and especially for chinese characters, the cutting out step(3) itself would be considered as another key factor to increase accuracy rate(refer to the negative case below for reason). Furthermore, it also became possible to perform much highrer accuracy rate by introducing AI in step 3/4 such as deep learning and reinforcement learning. We speculate achieving 99% accuracy rate should be a standard line or requirement to implement the OCR tool to actual project.</p>
-<ol start="6">
-<li>negative case<img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_xxx.png" class="">
+<p>The most important step is to recognize the characters after cutting them out from character string(4), and especially for Chinese characters, the cutting out step(3) itself would be considered as another key factor to increase accuracy rate(refer to the negative case below for reason). Furthermore, it also became possible to perform much higher accuracy rate by introducing AI in step 3/4 such as deep learning and reinforcement learning. We speculate achieving 99% accuracy rate should be a standard line or requirement to implement the OCR tool to actual project.</p>
+<p>negative case</p>
+<img src="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/OCR_xxx.png" class="">
 
-</li>
-</ol>
-<p>Another reason we consider to use OCR in parity testing is that the object images in mainframe modernization project are always similar, there are not so many layout patterns especially in mainframe part.</p>
+<p>Another reason we consider to use OCR in parity testing is that the object images in mainframe modernization project are always similar, actually there are not so many layout patterns especially in mainframe part.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/" data-id="ckauxwsnr0002qwqz9rjod49b" class="article-share-link">Share</a>
+      <a data-url="https://ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/" data-id="ckav042xs0001ycqz69mhgrhx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +229,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/">Basic-processing-steps-of-OCR</a>
+            <a href="/ac-discovery.github.io/2020/05/31/Basic-processing-steps-of-OCR/">Basic processing steps of OCR</a>
           </li>
         
           <li>
