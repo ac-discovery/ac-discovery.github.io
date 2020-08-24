@@ -34,7 +34,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img2.png">
 <meta property="og:image" content="https://ac-discovery.github.io/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img3.png">
 <meta property="article:published_time" content="2020-05-23T15:25:37.000Z">
-<meta property="article:modified_time" content="2020-05-27T02:57:19.784Z">
+<meta property="article:modified_time" content="2020-08-24T15:47:20.836Z">
 <meta property="article:author" content="Allen Chen -- haoting.chen.biz@gmail.com">
 <meta property="article:tag" content="Mainframe Modernization">
 <meta name="twitter:card" content="summary">
@@ -120,12 +120,12 @@ ga('send', 'pageview');
 <p>So just consider the situation that a user has already logged in the system but still attempts to login again from different applications or devices, for which we might stop the current login and show an alert like “you’ve logged from xxx”(No.1), or allow the current login and disconnect the previous one (No.2).</p>
 <a id="more"></a>
 <p>For No.1, add the following code in configure function which should be overridden.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">http.authorizeRequests().sessionManagement().</span><br><span class="line"><span class="comment">// Limit the number of simultaneous sessions</span></span><br><span class="line">maximumSessions(<span class="number">1</span>).</span><br><span class="line"><span class="comment">// Url redirection for previous login session after page refreshment</span></span><br><span class="line">expiredUrl(<span class="string">"/login?expired=true"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http.authorizeRequests().sessionManagement().</span><br><span class="line"><span class="comment">// Limit the number of simultaneous sessions</span></span><br><span class="line">maximumSessions(<span class="number">1</span>).</span><br><span class="line"><span class="comment">// Url redirection for previous login session after page refreshment</span></span><br><span class="line">expiredUrl(<span class="string">"/login?expired=true"</span>)</span><br><span class="line"><span class="comment">// Prevent previous login session</span></span><br><span class="line">.maxSessionsPreventsLogin(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
 <p>Sample:</p>
 <img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img1.png" class="">
 
-<p>For No.2, add the following code after No.1’s code.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Prevent previous login session</span></span><br><span class="line">.maxSessionsPreventsLogin(<span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<p>For No.2, modify the following part in No.1’s code.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Not prevent previous login session</span></span><br><span class="line">.maxSessionsPreventsLogin(<span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
 <p>Sample:</p>
 <img src="/ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/img2.png" class="">
 
@@ -139,7 +139,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" data-id="ckbp8waas000078qz7w9g0v1z" class="article-share-link">Share</a>
+      <a data-url="https://ac-discovery.github.io/2020/05/24/Concurrent-session-control-by-Spring-Security/" data-id="cke8p33rq00013gqza36b8ucd" class="article-share-link">Share</a>
       
       
     </footer>
